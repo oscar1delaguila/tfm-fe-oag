@@ -1,0 +1,38 @@
+
+
+
+
+<div class="container mt-5">
+    <div *ngIf="juguete.data" class="row">
+
+        <div class="col-md-7">
+
+            <div class="my-5 text-end">
+                <a class="btn btn-secondary" routerLink="/">Volver</a>
+            </div>
+    
+            <h2><strong>Nombre Juguete: </strong> {{ juguete.data.nombre_juguete }}</h2>
+            <img src="../../../assets/images/{{juguete.data.path_imagen }}" class="img-fluid mb-4"> -->
+
+            <div class="text-center my-4">
+                <button mat-raised-button color="primary" (click)="showAllDetails();">Mostrar detalles</button>
+            </div>
+            <mat-tab-group *ngIf="showDetails">
+                <mat-tab label="Descripción juguete"> 
+                    <p class="text-left my-3">{{ juguete.data.descripcion }}</p>
+                </mat-tab>
+                <mat-tab label="Categoría">
+                    <p class="text-left my-3"><strong>Categoría:</strong></p>
+                        <div  *ngFor="let categoria of juguete.data.categorias"  > 
+                         {{ categoria.categoria }}
+                        </div> 
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+    
+    </div>
+    
+</div>
+
+  
